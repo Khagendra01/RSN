@@ -151,6 +151,9 @@ class SDNS{
 	}
 }
 
+newSdn = new SDNS()
+console.log(newSdn)
+
 
 if(typeof(window)==='undefined'){
 	// /////////////////////////////////////////////////////////////
