@@ -1,0 +1,33 @@
+This code defines two classes, SChunk and SDNS, which appear to be part of a cognitive architecture or neural network implementation.
+SChunk Class:
+Represents a chunk, a basic unit of knowledge or pattern.
+Has properties:
+parent1 and parent2: references to other chunks.
+f: a frequency or activation count.
+outputs: a map of output values.
+subchunks: an array of child chunks.
+Methods:
+allowActivation(currentTic): checks if the chunk can be activated based on its parents' last activation time.
+constructor(p1, p2): initializes the chunk with two parent chunks.
+SDNS Class:
+Represents a cognitive system or neural network.
+Has properties:
+VERSION: a version string.
+params: an object with parameters (e.g., learning rate, frequency-based or error-driven learning).
+inputs: a map of input chunks.
+currentTic: the current time step or iteration.
+state: an array of currently active chunks.
+Methods:
+chunkActivate(chunk): activates a chunk and its subchunks.
+learnChunking(): learns new chunks based on the most active ones.
+updateUerror(chunk, output): updates the output value of a chunk using error-driven learning.
+updateUfreq(chunk, output): updates the output value of a chunk using frequency-based learning.
+learnOutput(output): updates the output values of all active chunks.
+perceive(perceptualCues): activates chunks based on input cues.
+expose(inputs, epochs): trains the system with input data for a specified number of epochs.
+learnOutputs(cases, epochs): learns output values from labeled cases.
+decide(): makes a decision based on the currently active chunks.
+train(cases, epochs, epochsO): trains the system with labeled cases.
+predict(inputs): makes predictions for a given input array.
+The shuffle function at the top is a utility function to shuffle an array randomly.
+This code is quite complex, and its specific purpose or behavior would require further analysis and context.

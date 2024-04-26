@@ -5,7 +5,8 @@ from numpy import *
 class neuron(object): 
 	def __init__(self): 
 		# Generate random numbers 
-		random.seed(1) 
+		random.seed(1)
+		self.lr = 0.1 
 
 		# Assign random weights to a 3 x 1 matrix, 
 		self.synaptic_weights = 2 * random.random((3, 1)) - 1
@@ -30,7 +31,7 @@ class neuron(object):
 
 			# Adjust the weights by a factor 
 			factor = dot(inputs.T, error * self.__sigmoid_derivative(output)) 
-			self.synaptic_weights += factor 
+			self.synaptic_weights += (factor * self.lr) 
 
 		# The neural network thinks. 
 
