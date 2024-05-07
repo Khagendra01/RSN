@@ -1,7 +1,6 @@
 from joblib.numpy_pickle_utils import xrange
 from numpy import *
 
-
 class neuron(object): 
 	def __init__(self): 
 		# Generate random numbers 
@@ -24,7 +23,7 @@ class neuron(object):
 	def train(self, inputs, outputs, training_iterations): 
 		for iteration in xrange(training_iterations): 
 			# Pass the training set through the network. 
-			output = self.learn(inputs) 
+			output = self.predict(inputs) 
 
 			# Calculate the error 
 			error = outputs - output 
@@ -35,7 +34,7 @@ class neuron(object):
 
 		# The neural network thinks. 
 
-	def learn(self, inputs): 
+	def predict(self, inputs): 
 		return self.__sigmoid(dot(inputs, self.synaptic_weights)) 
 
 
@@ -48,7 +47,7 @@ if __name__ == "__main__":
 	outputs = array([[1, 0, 1]]).T 
 
 	# Train the neural network 
-	neural_network.train(inputs, outputs, 10000) 
+	neural_network.train(inputs, outputs, 1000) 
 
 	# Test the neural network with a test example. 
-	print(neural_network.learn(array([1, 0, 1]))) 
+	print(neural_network.predict([1,0,1])) 
