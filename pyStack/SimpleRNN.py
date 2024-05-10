@@ -197,4 +197,39 @@ class SimpleRNN:
     def softmax(self,xs):
       return np.exp(xs) / sum(np.exp(xs))
 
+
+from sklearn.datasets import fetch_openml
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Load MNIST dataset
+mnist = fetch_openml('mnist_784')
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(mnist.data, mnist.target, test_size=0.2, random_state=42)
+
+# Scale data
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Define SimpleRNN model
+model = SimpleRNN(layer_list=[784, 256, 10], time_steps=28, learning_rate=0.01, optimizer='sgd')
+
+# Train model
+for epoch in range(10):
+    for i in range(X_train_scaled.shape[0]):
+        input_seq = X_train_scaled[i].reshape(28, 28)
+        output = model.feedforward(input_seq)
+        error = y_train[i] - output
+        model.backpropagation(error, 1)
+
+# Evaluate model
+accuracy = 0
+for i in range(X_test_scaled.shape[0]):
+    input_seq = X_test_scaled[i].reshape(28, 28)
+    output = model.feedforward(input_seq)
+    accuracy += (np.argmax(output) == y_test[i])
+accuracy /= X_test_scaled.shape[0]
+print(f'Test accuracy: {accuracy:.2f}')
     
