@@ -1,0 +1,32 @@
+SimpleRNN
+  - Hyperparameters:
+    - layer_list: List of layer sizes
+    - time_steps: Number of time steps
+    - weight_scaler: Scaling factor for weight initialization
+    - firing_rate_scaler: Scaling factor for firing rates (not used in this code)
+    - learning_rate: Learning rate for optimization
+    - loss_function: Loss function to use (not implemented in this code)
+    - optimizer: Optimization algorithm to use
+
+  - Layers:
+    - self.layers: List of numpy arrays representing the activations of each layer at the current time step
+
+  - Weights and Biases:
+    - self.W_ver: List of weight matrices for vertical connections between layers
+    - self.W_hor: Weight matrix for horizontal connections within the hidden layer
+    - self.bh: Bias vector for the hidden layer
+    - self.by: Bias vector for the output layer
+
+  - Activations and Gradients:
+    - self.Q_intime: List of lists, where each inner list stores the activations of all layers at a specific time step
+    - self.dh_list: List to store delta values (gradients) for the hidden layer during backpropagation
+    - self.gradient_list: List of numpy arrays to store gradients for weights and biases
+
+  - Methods:
+    - __init__: Constructor to initialize the RNN model
+    - init_weights: Initialize weights with random values
+    - feedforward: Perform the forward pass of the RNN
+    - dh_dfi: Compute the derivative of the hyperbolic tangent activation function
+    - backpropagation: Perform backpropagation and update weights and biases
+    - update_weights: Update weights and biases based on gradients
+    - softmax: Compute the softmax activation function

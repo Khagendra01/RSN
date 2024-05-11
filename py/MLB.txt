@@ -1,0 +1,41 @@
+MLP
+  - Hyperparameters:
+    - hidden_layer_sizes: List of sizes for the hidden layers (e.g., [128, 64, 32])
+    - loss_fn: Loss function to use ('bce' for binary cross-entropy or 'cce' for categorical cross-entropy)
+
+  - Input Data:
+    - self.X: Training input data with a bias column added
+    - self.Y: One-hot encoded training labels
+    - self.X_val: Validation input data with a bias column added
+    - self.Y_val: One-hot encoded validation labels
+
+  - Network Layers:
+    - self.weights: List of weight matrices for each layer
+    - self.__h: List of numpy arrays to store activations for each layer during forward pass
+
+  - Output:
+    - self.__out: Softmax output of the network
+
+  - Metrics:
+    - self.train_loss: List to store training loss over epochs
+    - self.train_acc: List to store training accuracy over epochs
+    - self.val_loss: List to store validation loss over epochs
+    - self.val_acc: List to store validation accuracy over epochs
+    - self.train_time: List to store training time per epoch
+    - self.tot_time: List to store total time per epoch (including validation)
+
+  - Methods:
+    - __init__: Constructor to initialize the MLP model
+    - __sigmoid: Compute the sigmoid activation function
+    - __softmax: Compute the softmax activation function
+    - __loss: Compute the loss (binary cross-entropy or categorical cross-entropy)
+    - __accuracy: Compute the accuracy
+    - __sigmoid_prime: Compute the derivative of the sigmoid function
+    - __to_categorical: Convert probabilities to categorical one-hot predictions
+    - __init_weights: Initialize the weights of the network
+    - __init_layers: Initialize the activations for each layer
+    - __feed_forward: Perform the forward pass of the network
+    - __back_prop: Perform backpropagation and update the weights
+    - predict: Generate predictions for a given input
+    - evaluate: Evaluate the performance (accuracy) on a given input and true labels
+    - train: Train the model for a given number of epochs and batch size, and store the relevant metrics
