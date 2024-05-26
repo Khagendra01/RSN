@@ -191,7 +191,7 @@ sdns.train([
 
 // Make predictions
 let predictions = sdns.predict([
-  ['chunk1', 'chunk2'],
+  ['chunk1', 'chunk3'],
   ['chunk3', 'chunk4'],
   ['chunk1', 'chunk3'],
   ['chunk2', 'chunk4']
