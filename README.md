@@ -13,3 +13,8 @@ https://arxiv.org/pdf/1601.06071
 
 Base Paper
 https://arxiv.org/pdf/2110.06804
+
+
+
+GRU
+https://github.com/erikvdplas/gru-rnn/tree/master
