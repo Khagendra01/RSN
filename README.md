@@ -18,3 +18,6 @@ https://arxiv.org/pdf/2110.06804
 
 GRU
 https://github.com/erikvdplas/gru-rnn/tree/master
+
+Saver - Savior
+https://github.com/huseinzol05/Machine-Learning-Numpy/tree/master/neural-network
